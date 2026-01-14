@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyberfly Labs - Future of AI & IoT</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Cyberfly Labs builds advanced AI, decentralized IoT, and offline intelligence solutions. Explore PrivateScan, EdgeDox, and Cyberfly Network." />
+  <meta name="keywords" content="AI, IoT, edge computing, offline AI, OCR, document intelligence, privacy, decentralized" />
+  <meta name="author" content="Cyberfly Labs" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cyberflylabs.com/" />
+  <meta property="og:title" content="Cyberfly Labs - Building the Intelligent Edge" />
+  <meta property="og:description" content="Advanced AI, Decentralized IoT, and Offline Intelligence. Explore our ecosystem of innovative products." />
+  <meta property="og:image" content="./assets/images/og-image.png" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cyberfly Labs - Building the Intelligent Edge" />
+  <meta name="twitter:description" content="Advanced AI, Decentralized IoT, and Offline Intelligence." />
+  <meta name="twitter:image" content="./assets/images/og-image.png" />
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#030712" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5e9',
+            secondary: '#8b5cf6',
+            accent: '#10b981',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    .gradient-text {
+      background: linear-gradient(to right, #0ea5e9, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero-glow::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, #0ea5e9, transparent 70%);
+      opacity: 0.1;
+      filter: blur(100px);
+    }
+    
+    .hero-glow::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -10%;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, #8b5cf6, transparent 70%);
+      opacity: 0.1;
+      filter: blur(100px);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-element {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .product-card:nth-child(1).fade-in { animation-delay: 0.1s; }
+    .product-card:nth-child(2).fade-in { animation-delay: 0.2s; }
+    .product-card:nth-child(3).fade-in { animation-delay: 0.3s; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-50 font-sans overflow-x-hidden">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full py-5 z-50 transition-all duration-300" id="header">
+    <div class="container mx-auto px-5 flex justify-between items-center max-w-7xl">
+      <a href="./" class="text-2xl font-extrabold" aria-label="Cyberfly Labs Home">
+        Cyberfly <span class="gradient-text">Labs</span>
+      </a>
+      <nav aria-label="Main navigation" class="hidden md:block">
+        <ul class="flex gap-8">
+          <li><a href="#products" class="hover:text-primary transition-colors">Products</a></li>
+          <li><a href="#vision" class="hover:text-primary transition-colors">Vision</a></li>
+          <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden p-2 z-50" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-btn">
+        <span class="hamburger block w-6 h-0.5 bg-white relative transition-all duration-300">
+          <span class="absolute w-6 h-0.5 bg-white -top-2 transition-all duration-300"></span>
+          <span class="absolute w-6 h-0.5 bg-white top-2 transition-all duration-300"></span>
+        </span>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="md:hidden fixed top-[70px] -right-full bg-gray-950/98 backdrop-blur-lg border-l border-white/10 min-w-[250px] h-[calc(100vh-70px)] transition-all duration-300 p-10" id="mobile-nav" aria-label="Mobile navigation">
+      <ul class="flex flex-col gap-5">
+        <li><a href="#products" class="text-xl hover:text-primary transition-colors mobile-nav-link">Products</a></li>
+        <li><a href="#vision" class="text-xl hover:text-primary transition-colors mobile-nav-link">Vision</a></li>
+        <li><a href="#contact" class="text-xl hover:text-primary transition-colors mobile-nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 hero-glow" aria-label="Hero section">
+      <div class="text-center z-10 max-w-4xl px-5 mx-auto">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-5 -tracking-tight">
+          Building the <span class="gradient-text">Intelligent Edge</span>
+        </h1>
+        <p class="text-xl text-gray-400 mb-10">Advanced AI, Decentralized IoT, and Offline Intelligence.</p>
+        <a href="#products" class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="Explore our solutions">
+          Explore Solutions
+        </a>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-24" aria-labelledby="products-heading">
+      <div class="container mx-auto px-5 max-w-7xl">
+        <h2 id="products-heading" class="text-4xl md:text-5xl font-bold text-center mb-16">Our Ecosystem</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- PrivateScan -->
+          <article class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
+            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5" aria-label="Product type">Mobile App</span>
+            <h3 class="text-3xl font-bold mb-4">PrivateScan</h3>
+            <p class="text-gray-400 mb-6">Offline multilingual OCR app. Scan, extract, and clear text without sending data to the cloud.</p>
+            <a href="./privatescan/index.html" class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="Learn more about PrivateScan">
+              Learn More
+            </a>
+          </article>
+
+          <!-- EdgeDox -->
+          <article class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
+            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5" aria-label="Product type">Mobile App</span>
+            <h3 class="text-3xl font-bold mb-4">EdgeDox</h3>
+            <p class="text-gray-400 mb-6">Offline AI for document intelligence. Securely process sensitive documents directly on your device.</p>
+            <a href="./edgedox/index.html" class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="Learn more about EdgeDox">
+              Learn More
+            </a>
+          </article>
+
+          <!-- IoT Platform -->
+          <article class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
+            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5" aria-label="Product type">Platform</span>
+            <h3 class="text-3xl font-bold mb-4">Cyberfly Network</h3>
+            <p class="text-gray-400 mb-6">Decentralized AI edge inference and IoT platform. Scalable, secure, and private.</p>
+            <a href="./iot/index.html" class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-label="Learn more about Cyberfly Network">
+              Learn More
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-16 mt-12">
+    <div class="container mx-auto px-5 max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Cyberfly Labs</h4>
+          <p class="text-gray-500">Innovating at the edge.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Products</h4>
+          <a href="./privatescan/index.html" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">PrivateScan</a>
+          <a href="./edgedox/index.html" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">EdgeDox</a>
+          <a href="./iot/index.html" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Cyberfly Network</a>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Legal</h4>
+          <a href="#" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 pt-5 border-t border-white/10">
+        &copy; 2025 Cyberfly Labs. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
