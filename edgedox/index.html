@@ -10,7 +10,17 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <script>
         if (/Android/i.test(navigator.userAgent) && /Mobile/i.test(navigator.userAgent)) {
-            window.location.href = "https://play.google.com/store/apps/details?id=io.cyberfly.edgedox";
+            const appId = "io.cyberfly.edgedox";
+            const marketUri = `market://details?id=${appId}`;
+            const fallbackUrl = `https://play.google.com/store/apps/details?id=${appId}`;
+
+            // Try to open Play Store app
+            window.location.href = marketUri;
+
+            // Fallback to web URL if app doesn't open
+            setTimeout(() => {
+                window.location.href = fallbackUrl;
+            }, 1000);
         }
     </script>
 </head>
