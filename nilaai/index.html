@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nila AI - Spoken English Through Tamil | Cyberfly Labs</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Nila AI is an on-device spoken English learning app through Tamil. Powered by on-device AI — ASR, TTS, and LLM — with complete offline privacy." />
+    <meta name="keywords"
+        content="spoken english app, learn english through tamil, on-device AI, offline english learning, ASR, TTS, LLM, tamil english app" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+        /* Nila AI specific accent — warm amber/gold theme */
+        .nila-gradient {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nila-tag {
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+        }
+
+        .nila-btn {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+        }
+
+        .nila-btn:hover {
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+        }
+
+        /* AI pillars section */
+        .ai-pillars {
+            padding: 80px 0;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pillar-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            border-color: #f59e0b;
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .pillar-icon.asr {
+            background: rgba(14, 165, 233, 0.12);
+        }
+
+        .pillar-icon.tts {
+            background: rgba(139, 92, 246, 0.12);
+        }
+
+        .pillar-icon.llm {
+            background: rgba(16, 185, 129, 0.12);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .pillar-card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #9ca3af;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">
+                Cyberfly <span class="gradient-text">Labs</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/nilaai/privacy.html">Privacy</a></li>
+                    <li><a href="/nilaai/terms.html">Terms</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="product-tag nila-tag">Mobile App &middot; On-Device AI</span>
+            <h1><span class="nila-gradient">Nila AI</span></h1>
+            <p>Learn Spoken English through Tamil — completely offline.</p>
+            <p style="font-size: 1rem; max-width: 620px; margin: 0 auto 30px;">
+                Practice real conversations with an AI tutor that listens, speaks, and teaches — all powered by
+                on-device ASR, TTS, and LLM. No internet needed, no data leaves your phone.
+            </p>
+            <div class="flex" style="gap: 10px; justify-content: center;">
+                <a href="#" class="btn nila-btn">Download for iOS</a>
+                <a href="#" class="btn btn-glass"
+                    target="_blank" rel="noopener noreferrer">Download for Android</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Pillars -->
+    <section class="ai-pillars">
+        <div class="container">
+            <h2 class="section-title">Powered by Three AI Pillars</h2>
+            <div class="pillar-grid">
+
+                <div class="pillar-card">
+                    <div class="pillar-icon asr">🎙️</div>
+                    <h3>On-Device ASR</h3>
+                    <p>Automatic Speech Recognition that understands your Tamil-accented English. Runs entirely on your
+                        device with zero latency and complete privacy.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon tts">🔊</div>
+                    <h3>On-Device TTS</h3>
+                    <p>Natural Text-to-Speech in both English and Tamil. Hear correct pronunciation and learn through
+                        real-time spoken feedback — no cloud needed.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon llm">🧠</div>
+                    <h3>On-Device LLM</h3>
+                    <p>A compact large language model acts as your personal AI tutor — correcting grammar, suggesting
+                        vocabulary, and guiding conversations in Tamil and English.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="grid product-grid">
+
+                <div class="product-card">
+                    <h3>Tamil-First Approach</h3>
+                    <p>Learn English with explanations, translations, and guidance in Tamil — making it natural and
+                        comfortable for Tamil speakers.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>100% Offline</h3>
+                    <p>All AI models run on-device. Practice anywhere — no WiFi, no mobile data, no cloud
+                        dependency.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Real Conversations</h3>
+                    <p>Practice everyday scenarios: ordering food, job interviews, phone calls, small talk, and more
+                        with an AI conversation partner.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Pronunciation Feedback</h3>
+                    <p>Get instant spoken feedback on your pronunciation. The AI listens and helps you improve word by
+                        word.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Grammar Correction</h3>
+                    <p>Real-time grammar suggestions explained in Tamil so you understand why — not just what — to
+                        fix.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Complete Privacy</h3>
+                    <p>Your voice and conversations never leave your device. Learn freely without worrying about
+                        data being recorded or shared.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Pick a Scenario</h3>
+                    <p>Choose from real-life conversation topics like shopping, travel, or interviews.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Speak in English</h3>
+                    <p>The AI listens to you through on-device speech recognition.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get AI Feedback</h3>
+                    <p>Receive corrections, pronunciation tips, and vocabulary suggestions in Tamil.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Practice & Improve</h3>
+                    <p>Have full conversations and track your progress over time.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Start Speaking English <span class="nila-gradient">Today</span></h2>
+                <p>No internet. No subscriptions. Just you and your AI English tutor — in Tamil.</p>
+                <a href="#" class="btn nila-btn">Get Nila AI Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Cyberfly Labs</h4>
+                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="/nilaai/privacy.html">Privacy Policy</a>
+                    <a href="/nilaai/terms.html">Terms of Conditions</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Cyberfly Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>
