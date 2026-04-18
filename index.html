@@ -142,6 +142,10 @@
       animation-delay: 0.6s;
     }
 
+    .product-card:nth-child(7).fade-in {
+      animation-delay: 0.7s;
+    }
+
     @media (prefers-reduced-motion: reduce) {
 
       *,
@@ -301,6 +305,21 @@
             </a>
           </article>
 
+          <!-- expensAI -->
+          <article
+            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
+            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
+              aria-label="Product type">Mobile App</span>
+            <h3 class="text-3xl font-bold mb-4">expensAI</h3>
+            <p class="text-gray-400 mb-6">AI-powered expense tracker with voice input, receipt scanning, and SMS
+              auto-detection. Track finances privately on-device.</p>
+            <a href="./expensai/index.html"
+              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+              aria-label="Learn more about expensAI">
+              Learn More
+            </a>
+          </article>
+
         </div>
       </div>
     </section>
@@ -328,6 +347,8 @@
             class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">SmartPhoto AI</a>
           <a href="./nilaai/index.html"
             class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Nila AI</a>
+          <a href="./expensai/index.html"
+            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">expensAI</a>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-5">Legal</h4>

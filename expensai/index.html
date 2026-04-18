@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>expensAI - AI-Powered Expense Tracker | Cyberfly Labs</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="expensAI is an intelligent expense tracker powered by on-device AI. Track expenses with voice, scan receipts, and auto-detect transactions from SMS — all offline and private." />
+    <meta name="keywords"
+        content="expense tracker, AI expense app, voice expense input, receipt scanner, SMS transaction detection, offline expense tracker, privacy expense app" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+        /* expensAI specific accent — emerald/teal money theme */
+        .expensai-gradient {
+            background: linear-gradient(135deg, #10b981, #0d9488);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .expensai-tag {
+            background: rgba(16, 185, 129, 0.12);
+            color: #10b981;
+        }
+
+        .expensai-btn {
+            background: linear-gradient(135deg, #10b981, #0d9488);
+        }
+
+        .expensai-btn:hover {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        /* AI Features Section */
+        .ai-features {
+            padding: 80px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #0d9488);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #10b981;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon.voice {
+            background: rgba(16, 185, 129, 0.12);
+        }
+
+        .feature-icon.receipt {
+            background: rgba(14, 165, 233, 0.12);
+        }
+
+        .feature-icon.sms {
+            background: rgba(139, 92, 246, 0.12);
+        }
+
+        .feature-icon.ai {
+            background: rgba(245, 158, 11, 0.12);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Stats banner */
+        .stats-banner {
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-number.green {
+            color: #10b981;
+        }
+
+        .stat-number.blue {
+            color: #0ea5e9;
+        }
+
+        .stat-number.purple {
+            color: #8b5cf6;
+        }
+
+        .stat-number.amber {
+            color: #f59e0b;
+        }
+
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #0d9488);
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Use-cases */
+        .usecases-section {
+            padding: 80px 0;
+        }
+
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .usecase-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 14px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .usecase-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .usecase-card .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .usecase-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .usecase-card p {
+            color: #9ca3af;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.06), transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .cta-box p {
+            color: #9ca3af;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Privacy highlight strip */
+        .privacy-strip {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .privacy-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 0.88rem;
+            color: #d1d5db;
+            transition: border-color 0.3s;
+        }
+
+        .privacy-badge:hover {
+            border-color: #10b981;
+        }
+
+        .privacy-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">
+                Cyberfly <span class="gradient-text">Labs</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/expensai/privacy.html">Privacy</a></li>
+                    <li><a href="/expensai/terms.html">Terms</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="product-tag expensai-tag">Mobile App &middot; On-Device AI</span>
+            <h1><span class="expensai-gradient">expensAI</span></h1>
+            <p>Your AI-powered expense tracker that thinks for you.</p>
+            <p style="font-size: 1rem; max-width: 620px; margin: 0 auto 30px;">
+                Just speak, snap a receipt, or let it read your SMS — expensAI automatically logs, categorizes,
+                and analyzes your spending using on-device AI. No cloud. No data leaks. Just smart finance.
+            </p>
+            <div class="flex" style="gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn expensai-btn">Download for Android</a>
+                <a href="#" class="btn btn-glass">Download for iOS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Badges -->
+    <section class="privacy-strip">
+        <div class="container">
+            <div class="privacy-badges">
+                <div class="privacy-badge">
+                    <span class="dot"></span>
+                    100% Offline Processing
+                </div>
+                <div class="privacy-badge">
+                    <span class="dot"></span>
+                    No Cloud Uploads
+                </div>
+                <div class="privacy-badge">
+                    <span class="dot"></span>
+                    On-Device AI Models
+                </div>
+                <div class="privacy-badge">
+                    <span class="dot"></span>
+                    Zero Data Collection
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core AI Features -->
+    <section class="ai-features">
+        <div class="container">
+            <h2 class="section-title">Three Ways to Track Expenses</h2>
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon voice">🎙️</div>
+                    <h3>Voice Input</h3>
+                    <p>Just say "Spent ₹250 on groceries at Spencer's" and expensAI will parse the amount, category,
+                        and merchant automatically using on-device speech recognition and NLP.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon receipt">📸</div>
+                    <h3>Receipt Scanning</h3>
+                    <p>Point your camera at any receipt — expensAI uses on-device OCR and AI extraction to pull out
+                        the total, store name, date, and individual items. No photo leaves your phone.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon sms">💬</div>
+                    <h3>SMS Auto-Detect</h3>
+                    <p>Automatically detects bank transaction SMS and credit card alerts. Silently logs debits,
+                        credits, and UPI payments in the background — categorized by AI instantly.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Intelligent Features</h2>
+            <div class="grid product-grid">
+
+                <div class="product-card">
+                    <h3>Smart Categories</h3>
+                    <p>AI auto-categorizes every expense — food, transport, bills, shopping, health, entertainment —
+                        with the ability to learn from your corrections over time.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Spending Insights</h3>
+                    <p>Beautiful charts and AI-generated weekly/monthly summaries show where your money goes, highlight
+                        unusual spends, and suggest savings opportunities.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Budget Alerts</h3>
+                    <p>Set budgets per category and get smart alerts before you overspend. AI learns your patterns and
+                        warns you proactively based on spending velocity.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Multi-Currency</h3>
+                    <p>Supports multiple currencies with offline conversion. Perfect for travelers who need to track
+                        expenses across different countries and currencies.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Export & Share</h3>
+                    <p>Export your expense data as CSV or PDF reports. Share monthly summaries with family, accountants,
+                        or just keep clean records for tax season.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Complete Privacy</h3>
+                    <p>All AI processing — voice recognition, OCR, NLP, and SMS parsing — happens entirely on your
+                        device. Your financial data never touches any server.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Input Expense</h3>
+                    <p>Speak, scan a receipt, or let SMS detection capture transactions automatically.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI Processes</h3>
+                    <p>On-device AI extracts amount, merchant, date, and category from your input.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Auto-Categorize</h3>
+                    <p>Smart categorization engine places each expense in the right bucket automatically.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Get Insights</h3>
+                    <p>View spending trends, budget progress, and AI-powered financial insights anytime.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="usecases-section">
+        <div class="container">
+            <h2 class="section-title">Built For Everyone</h2>
+            <div class="usecase-grid">
+
+                <div class="usecase-card">
+                    <div class="icon">👨‍💼</div>
+                    <h3>Working Professionals</h3>
+                    <p>Track daily commute, lunch, and miscellaneous spends effortlessly with voice commands.</p>
+                </div>
+
+                <div class="usecase-card">
+                    <div class="icon">🎓</div>
+                    <h3>Students</h3>
+                    <p>Manage limited budgets smartly. Know exactly where your pocket money is going each month.</p>
+                </div>
+
+                <div class="usecase-card">
+                    <div class="icon">👨‍👩‍👧‍👦</div>
+                    <h3>Families</h3>
+                    <p>Household expense tracking made simple. Scan grocery receipts and monitor monthly budgets.</p>
+                </div>
+
+                <div class="usecase-card">
+                    <div class="icon">✈️</div>
+                    <h3>Travelers</h3>
+                    <p>Multi-currency support and receipt scanning make expense tracking seamless while traveling.</p>
+                </div>
+
+                <div class="usecase-card">
+                    <div class="icon">🏪</div>
+                    <h3>Small Business Owners</h3>
+                    <p>Keep personal and business expenses separate with smart tagging and export features.</p>
+                </div>
+
+                <div class="usecase-card">
+                    <div class="icon">🔒</div>
+                    <h3>Privacy-Conscious Users</h3>
+                    <p>Your financial data stays on your device. Zero cloud dependency, zero compromise.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Take Control of Your <span class="expensai-gradient">Finances</span></h2>
+                <p>No subscriptions. No cloud. Just intelligent expense tracking — powered by on-device AI.</p>
+                <a href="#" class="btn expensai-btn">Get expensAI Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Cyberfly Labs</h4>
+                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="/expensai/privacy.html">Privacy Policy</a>
+                    <a href="/expensai/terms.html">Terms of Conditions</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Cyberfly Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>
