@@ -4,126 +4,254 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NoiseFix - Offline AI Audio Denoiser | Cyberfly Labs</title>
+    <title>NoiseFix - Offline AI Audio & Video Denoiser | Cyberfly Labs</title>
     <meta name="description"
-        content="NoiseFix - Remove background noise from audio and video with offline AI. No internet required, complete privacy guaranteed.">
+        content="NoiseFix - Remove background noise from audio and video with offline AI. No internet required, complete privacy guaranteed. Available on Android.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <script>
-        if (/Android/i.test(navigator.userAgent) && /Mobile/i.test(navigator.userAgent)) {
-            const appId = "io.cyberfly.noisefix";
-            const marketUri = `market://details?id=${appId}`;
-            const fallbackUrl = `https://play.google.com/store/apps/details?id=${appId}`;
-
-            // Try to open Play Store app
-            window.location.href = marketUri;
-
-            // Fallback to web URL if app doesn't open
-            setTimeout(() => {
-                window.location.href = fallbackUrl;
-            }, 1000);
-        }
-    </script>
+    <link rel="stylesheet" href="/noisefix/assets/css/noisefix.css">
 </head>
 
-<body>
+<body class="nf-page">
     <!-- Header -->
-    <header>
+    <header id="nf-header">
         <div class="container flex justify-between items-center">
             <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">
                 Cyberfly <span class="gradient-text">Labs</span>
             </a>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nf-nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="/noisefix/privacy.html">Privacy</a></li>
                     <li><a href="/noisefix/terms.html">Terms</a></li>
                 </ul>
+                <button class="mobile-menu-btn" id="nf-mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="product-tag">Mobile App</span>
-            <h1><span class="gradient-text">NoiseFix</span></h1>
-            <p>Offline AI Denoiser for Audio & Video.</p>
-            <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 30px;">
-                Remove background noise, enhance voice clarity, and clean up your audio recordings—all processed locally
-                on your device. No internet, no cloud, no compromises.
-            </p>
-            <div class="flex" style="gap: 10px; justify-content: center;">
-                <a href="#" class="btn">Download for iOS</a>
-                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.noisefix" class="btn btn-glass"
-                    target="_blank" rel="noopener noreferrer">Download for Android</a>
+    <section class="nf-hero">
+        <div class="nf-hero-inner">
+            <div class="nf-hero-text">
+                <span class="nf-badge">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2H3v2a9 9 0 0 0 8 8.94V23h2v-2.06A9 9 0 0 0 21 12v-2h-2z" />
+                    </svg>
+                    AI-Powered Audio Tool
+                </span>
+                <h1>Remove Noise.<br><span class="nf-gradient">Keep Voice.</span></h1>
+                <p class="nf-subtitle">
+                    Offline AI denoiser for audio & video. Remove background noise, enhance voice clarity,
+                    and clean recordings — all processed locally on your device. No internet, no cloud, no compromises.
+                </p>
+
+                <!-- Animated waveform -->
+                <div class="nf-waveform">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+
+                <div class="nf-hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=io.cyberfly.noisefix"
+                        class="nf-btn nf-btn-primary" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302L5.864 3.658z" />
+                        </svg>
+                        Get on Google Play
+                    </a>
+                    <a href="#features" class="nf-btn nf-btn-glass">
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+
+            <div class="nf-hero-visual">
+                <img src="/noisefix/assets/images/hero-phone.png" alt="NoiseFix App Interface" width="460" height="460">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="nf-stats">
+        <div class="nf-stats-inner nf-reveal">
+            <div class="nf-stat">
+                <div class="nf-stat-value">100%</div>
+                <div class="nf-stat-label">Offline</div>
+            </div>
+            <div class="nf-stat">
+                <div class="nf-stat-value">Audio & Video</div>
+                <div class="nf-stat-label">Supported</div>
+            </div>
+            <div class="nf-stat">
+                <div class="nf-stat-value">PRO</div>
+                <div class="nf-stat-label">Batch Processing</div>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <div class="grid product-grid">
+    <section class="nf-section" id="features">
+        <div class="nf-section-inner">
+            <div class="nf-section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to clean up audio, built right into your phone.</p>
+            </div>
+            <div class="nf-features-grid">
 
-                <div class="product-card">
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">🔇</div>
+                    <h3>AI Noise Reduction</h3>
+                    <p>State-of-the-art neural networks remove background noise while preserving natural voice quality.
+                    </p>
+                </div>
+
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">📱</div>
                     <h3>100% Offline</h3>
-                    <p>All AI processing happens on your device. Your audio files never leave your phone.</p>
+                    <p>All AI processing happens on-device. Your audio files never leave your phone — total privacy.</p>
                 </div>
 
-                <div class="product-card">
-                    <h3>Audio & Video Support</h3>
-                    <p>Denoise standalone audio files or extract and clean audio from videos seamlessly.</p>
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">🎬</div>
+                    <h3>Audio & Video</h3>
+                    <p>Denoise standalone audio or extract and clean audio from MP4, MOV, MKV videos seamlessly.</p>
                 </div>
 
-                <div class="product-card">
-                    <h3>Advanced AI Noise Reduction</h3>
-                    <p>State-of-the-art neural networks remove background noise while preserving voice quality.</p>
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">🎚️</div>
+                    <h3>Adjustable Strength</h3>
+                    <p>Choose from Low, Medium, or High noise reduction levels to match your recording needs.</p>
                 </div>
 
-                <div class="product-card">
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">🗣️</div>
+                    <h3>Voice Boost</h3>
+                    <p>Enhance and amplify voice clarity with a single toggle — perfect for quiet recordings.</p>
+                </div>
+
+                <div class="nf-feature-card nf-reveal">
+                    <div class="nf-feature-icon">📦</div>
                     <h3>Batch Processing</h3>
-                    <p>Process multiple files at once with intelligent queue management for PRO users.</p>
-                </div>
-
-                <div class="product-card">
-                    <h3>Before/After Comparison</h3>
-                    <p>Compare original and denoised audio side-by-side to hear the difference instantly.</p>
-                </div>
-
-                <div class="product-card">
-                    <h3>Easy Export</h3>
-                    <p>Save cleaned audio in popular formats and share directly from the app.</p>
+                    <p>Process multiple files at once with smart queue management. Available for PRO users.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="nf-section" style="background: rgba(124, 58, 237, 0.04);">
+        <div class="nf-section-inner">
+            <div class="nf-section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to crystal-clear audio.</p>
+            </div>
+            <div class="nf-how-grid">
+                <div class="nf-how-step nf-reveal">
+                    <h3>Select File</h3>
+                    <p>Pick an audio or video file from your device, or record directly in the app.</p>
+                </div>
+                <div class="nf-how-step nf-reveal">
+                    <h3>Choose Strength</h3>
+                    <p>Set your preferred noise reduction level and toggle Voice Boost if needed.</p>
+                </div>
+                <div class="nf-how-step nf-reveal">
+                    <h3>Remove Noise</h3>
+                    <p>Tap the button and let the AI engine process your audio in seconds — all offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Showcase -->
+    <section class="nf-section">
+        <div class="nf-section-inner">
+            <div class="nf-section-header">
+                <h2>See the Difference</h2>
+                <p>AI-powered noise reduction transforms chaotic audio into clean, professional sound.</p>
+            </div>
+            <div class="nf-showcase nf-reveal">
+                <img src="/noisefix/assets/images/before-after.png" alt="Before and after noise reduction comparison">
+                <div class="nf-showcase-caption">
+                    <h3>Compare Original & Denoised</h3>
+                    <p>Listen side-by-side to hear the dramatic difference. Toggle between original and denoised audio
+                        right in the app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases -->
-    <section class="products-section" style="background: rgba(139, 92, 246, 0.05);">
-        <div class="container">
-            <h2 class="section-title">Perfect For</h2>
-            <div class="grid product-grid">
+    <section class="nf-section" style="background: rgba(124, 58, 237, 0.04);">
+        <div class="nf-section-inner">
+            <div class="nf-section-header">
+                <h2>Perfect For</h2>
+                <p>From casual recordings to professional content, NoiseFix handles it all.</p>
+            </div>
+            <div class="nf-usecases-grid">
 
-                <div class="product-card">
-                    <h3>Voice Recordings</h3>
-                    <p>Clean up interviews, podcasts, and voice memos with studio-quality noise reduction.</p>
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">🎙️</span>
+                    <h3>Podcasts & Interviews</h3>
+                    <p>Studio-quality noise reduction for your voice recordings and podcast episodes.</p>
                 </div>
 
-                <div class="product-card">
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">🎥</span>
                     <h3>Video Content</h3>
-                    <p>Enhance audio in your videos for YouTube, TikTok, or professional projects.</p>
+                    <p>Clean audio in videos for YouTube, TikTok, Instagram Reels or professional projects.</p>
                 </div>
 
-                <div class="product-card">
-                    <h3>WhatsApp & Messaging</h3>
-                    <p>Import and clean voice notes directly from messaging apps.</p>
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">💬</span>
+                    <h3>Voice Messages</h3>
+                    <p>Import and clean voice notes from WhatsApp, Telegram, and other messaging apps.</p>
                 </div>
 
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">🎵</span>
+                    <h3>Music & Vocals</h3>
+                    <p>Remove unwanted background noise from vocal recordings and acoustic captures.</p>
+                </div>
+
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">📚</span>
+                    <h3>Lectures & Meetings</h3>
+                    <p>Make classroom recordings and meeting audio clear and easy to understand.</p>
+                </div>
+
+                <div class="nf-usecase-card nf-reveal">
+                    <span class="nf-usecase-emoji">🔒</span>
+                    <h3>Private & Secure</h3>
+                    <p>Sensitive recordings stay on your device. No uploads, no servers, no tracking.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="nf-cta">
+        <div class="nf-cta-box nf-reveal">
+            <h2>Ready for Crystal-Clear Audio?</h2>
+            <p>Download NoiseFix and start removing noise from your recordings today — completely free to try.</p>
+            <div class="nf-cta-actions">
+                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.noisefix"
+                    class="nf-btn nf-btn-primary" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302L5.864 3.658z" />
+                    </svg>
+                    Download on Google Play
+                </a>
             </div>
         </div>
     </section>
@@ -134,18 +262,19 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Cyberfly Labs</h4>
-                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                    <p style="color: var(--nf-text-muted);">Innovating at the edge.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Changelog</a>
-                    <a href="#">Support</a>
+                    <a href="#features">Features</a>
+                    <a href="https://play.google.com/store/apps/details?id=io.cyberfly.noisefix" target="_blank"
+                        rel="noopener noreferrer">Google Play</a>
+                    <a href="mailto:cyberflyapps@gmail.com">Support</a>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="/noisefix/privacy.html">Privacy Policy</a>
-                    <a href="/noisefix/terms.html">Terms of Conditions</a>
+                    <a href="/noisefix/terms.html">Terms & Conditions</a>
                 </div>
             </div>
             <div class="copyright">
@@ -155,6 +284,47 @@
     </footer>
 
     <script type="module" src="/assets/js/main.js"></script>
+    <script>
+        // Header scroll effect
+        const nfHeader = document.getElementById('nf-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nfHeader.classList.add('scrolled');
+            } else {
+                nfHeader.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.nf-reveal').forEach(el => revealObserver.observe(el));
+
+        // Mobile menu toggle
+        const nfMenuBtn = document.getElementById('nf-mobile-menu');
+        const nfNavLinks = document.getElementById('nf-nav-links');
+        if (nfMenuBtn && nfNavLinks) {
+            nfMenuBtn.addEventListener('click', () => {
+                const expanded = nfMenuBtn.getAttribute('aria-expanded') === 'true';
+                nfMenuBtn.setAttribute('aria-expanded', !expanded);
+                nfNavLinks.classList.toggle('active');
+            });
+            // Close on link click
+            nfNavLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nfMenuBtn.setAttribute('aria-expanded', 'false');
+                    nfNavLinks.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
