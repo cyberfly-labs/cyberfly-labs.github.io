@@ -1,363 +1,425 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cyberfly Labs - Future of AI & IoT</title>
 
-  <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Cyberfly Labs builds advanced AI, decentralized IoT, and offline intelligence solutions. Explore PrivateScan, EdgeDox, and Cyberfly Network." />
-  <meta name="keywords"
-    content="AI, IoT, edge computing, offline AI, OCR, document intelligence, privacy, decentralized" />
+    content="Cyberfly Labs builds advanced AI, decentralized IoT, and offline intelligence solutions. Explore PrivateScan, EdgeDox, NoiseFix, and more." />
+  <meta name="keywords" content="AI, IoT, edge computing, offline AI, OCR, document intelligence, privacy, decentralized" />
   <meta name="author" content="Cyberfly Labs" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cyberflylabs.com/" />
   <meta property="og:title" content="Cyberfly Labs - Building the Intelligent Edge" />
-  <meta property="og:description"
-    content="Advanced AI, Decentralized IoT, and Offline Intelligence. Explore our ecosystem of innovative products." />
+  <meta property="og:description" content="Advanced AI, Decentralized IoT, and Offline Intelligence." />
   <meta property="og:image" content="./assets/images/og-image.png" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cyberfly Labs - Building the Intelligent Edge" />
   <meta name="twitter:description" content="Advanced AI, Decentralized IoT, and Offline Intelligence." />
-  <meta name="twitter:image" content="./assets/images/og-image.png" />
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#030712" />
-
-  <!-- Favicon -->
+  <meta name="theme-color" content="#06060f" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0ea5e9',
-            secondary: '#8b5cf6',
-            accent: '#10b981',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-
-  <!-- Custom Styles -->
   <style>
-    .gradient-text {
-      background: linear-gradient(to right, #0ea5e9, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Homepage-specific styles */
+    .home-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 24px 80px;
     }
 
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-glow::before {
+    .home-hero::before {
       content: '';
       position: absolute;
-      top: -20%;
-      left: -10%;
-      width: 50%;
-      height: 50%;
-      background: radial-gradient(circle, #0ea5e9, transparent 70%);
-      opacity: 0.1;
-      filter: blur(100px);
+      top: -30%;
+      left: 20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(109, 90, 237, 0.2), transparent 65%);
+      filter: blur(80px);
+      pointer-events: none;
     }
 
-    .hero-glow::after {
+    .home-hero::after {
       content: '';
       position: absolute;
       bottom: -20%;
-      right: -10%;
-      width: 50%;
-      height: 50%;
-      background: radial-gradient(circle, #8b5cf6, transparent 70%);
-      opacity: 0.1;
-      filter: blur(100px);
+      right: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 65%);
+      filter: blur(80px);
+      pointer-events: none;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .home-hero-content {
+      text-align: center;
+      z-index: 1;
+      max-width: 800px;
     }
 
-    .fade-in-element {
+    .home-hero-content h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .home-hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Products grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .app-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--card-accent, var(--primary-light)), transparent);
       opacity: 0;
-      transform: translateY(30px);
+      transition: opacity var(--transition);
     }
 
-    .fade-in {
-      animation: fadeInUp 0.6s ease forwards;
+    .app-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-bg-hover);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
 
-    .product-card:nth-child(1).fade-in {
-      animation-delay: 0.1s;
+    .app-card:hover::before { opacity: 1; }
+
+    .app-card-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      width: fit-content;
     }
 
-    .product-card:nth-child(2).fade-in {
-      animation-delay: 0.2s;
+    .app-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
     }
 
-    .product-card:nth-child(3).fade-in {
-      animation-delay: 0.3s;
+    .app-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex-grow: 1;
     }
 
-    .product-card:nth-child(4).fade-in {
-      animation-delay: 0.4s;
+    .app-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--card-accent, var(--primary-light));
+      transition: gap var(--transition);
     }
 
-    .product-card:nth-child(5).fade-in {
-      animation-delay: 0.5s;
+    .app-card-link:hover { gap: 12px; }
+
+    .app-card-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition);
     }
 
-    .product-card:nth-child(6).fade-in {
-      animation-delay: 0.6s;
+    /* Color accents per card */
+    .card-purple { --card-accent: #a78bfa; }
+    .card-purple .app-card-tag { background: rgba(167,139,251,0.12); color: #a78bfa; }
+
+    .card-cyan { --card-accent: #22d3ee; }
+    .card-cyan .app-card-tag { background: rgba(34,211,238,0.12); color: #22d3ee; }
+
+    .card-blue { --card-accent: #60a5fa; }
+    .card-blue .app-card-tag { background: rgba(96,165,250,0.12); color: #60a5fa; }
+
+    .card-amber { --card-accent: #fbbf24; }
+    .card-amber .app-card-tag { background: rgba(251,191,36,0.12); color: #fbbf24; }
+
+    .card-pink { --card-accent: #f472b6; }
+    .card-pink .app-card-tag { background: rgba(244,114,182,0.12); color: #f472b6; }
+
+    .card-green { --card-accent: #34d399; }
+    .card-green .app-card-tag { background: rgba(52,211,153,0.12); color: #34d399; }
+
+    .card-indigo { --card-accent: #818cf8; }
+    .card-indigo .app-card-tag { background: rgba(129,140,248,0.12); color: #818cf8; }
+
+    /* Vision section */
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
 
-    .product-card:nth-child(7).fade-in {
-      animation-delay: 0.7s;
+    .vision-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      transition: all var(--transition);
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    .vision-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--glass-border-hover);
+    }
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+    .vision-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      background: rgba(109,90,237,0.12);
+      border: 1px solid rgba(109,90,237,0.2);
+    }
+
+    .vision-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .vision-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    .contact-box {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-box h2 { font-size: 2rem; margin-bottom: 14px; color: #fff; }
+    .contact-box p { color: var(--text-muted); margin-bottom: 28px; }
+
+    @media (max-width: 768px) {
+      .home-hero-content h1 { font-size: 2.8rem; letter-spacing: -1px; }
+      .products-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
-<body class="bg-gray-950 text-gray-50 font-sans overflow-x-hidden">
+<body>
   <!-- Header -->
-  <header class="fixed top-0 left-0 w-full py-5 z-50 transition-all duration-300" id="header">
-    <div class="container mx-auto px-5 flex justify-between items-center max-w-7xl">
-      <a href="./" class="text-2xl font-extrabold" aria-label="Cyberfly Labs Home">
-        Cyberfly <span class="gradient-text">Labs</span>
-      </a>
-      <nav aria-label="Main navigation" class="hidden md:block">
-        <ul class="flex gap-8">
-          <li><a href="#products" class="hover:text-primary transition-colors">Products</a></li>
-          <li><a href="#vision" class="hover:text-primary transition-colors">Vision</a></li>
-          <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+  <header id="header">
+    <div class="container flex justify-between items-center">
+      <a href="./" class="logo">Cyberfly <span class="gradient-text">Labs</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
       </nav>
-      <button class="md:hidden p-2 z-50" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-btn">
-        <span class="hamburger block w-6 h-0.5 bg-white relative transition-all duration-300">
-          <span class="absolute w-6 h-0.5 bg-white -top-2 transition-all duration-300"></span>
-          <span class="absolute w-6 h-0.5 bg-white top-2 transition-all duration-300"></span>
-        </span>
-      </button>
     </div>
-    <!-- Mobile Menu -->
-    <nav
-      class="md:hidden fixed top-[70px] -right-full bg-gray-950/98 backdrop-blur-lg border-l border-white/10 min-w-[250px] h-[calc(100vh-70px)] transition-all duration-300 p-10"
-      id="mobile-nav" aria-label="Mobile navigation">
-      <ul class="flex flex-col gap-5">
-        <li><a href="#products" class="text-xl hover:text-primary transition-colors mobile-nav-link">Products</a></li>
-        <li><a href="#vision" class="text-xl hover:text-primary transition-colors mobile-nav-link">Vision</a></li>
-        <li><a href="#contact" class="text-xl hover:text-primary transition-colors mobile-nav-link">Contact</a></li>
-      </ul>
-    </nav>
   </header>
-  <!-- Main Content -->
+
   <main>
     <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 hero-glow"
-      aria-label="Hero section">
-      <div class="text-center z-10 max-w-4xl px-5 mx-auto">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-5 -tracking-tight">
-          Building the <span class="gradient-text">Intelligent Edge</span>
-        </h1>
-        <p class="text-xl text-gray-400 mb-10">Advanced AI, Decentralized IoT, and Offline Intelligence.</p>
-        <a href="#products"
-          class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-          aria-label="Explore our solutions">
-          Explore Solutions
-        </a>
+    <section class="home-hero" aria-label="Hero section">
+      <div class="home-hero-content">
+        <h1>Building the <span class="gradient-text">Intelligent Edge</span></h1>
+        <p>Advanced AI, Decentralized IoT, and Offline Intelligence — all running on your device.</p>
+        <a href="#products" class="btn">Explore Solutions</a>
       </div>
     </section>
 
     <!-- Products -->
-    <section id="products" class="py-24" aria-labelledby="products-heading">
-      <div class="container mx-auto px-5 max-w-7xl">
-        <h2 id="products-heading" class="text-4xl md:text-5xl font-bold text-center mb-16">Our Ecosystem</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="products" class="section" aria-labelledby="products-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2 id="products-heading">Our Ecosystem</h2>
+          <p>Privacy-first apps and platforms powered by on-device AI.</p>
+        </div>
+        <div class="products-grid">
 
-          <!-- PrivateScan -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">PrivateScan</h3>
-            <p class="text-gray-400 mb-6">Offline multilingual OCR app. Scan, extract, and clear text without sending
-              data to the cloud.</p>
-            <a href="./privatescan/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about PrivateScan">
-              Learn More
-            </a>
+          <article class="app-card card-purple reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>NoiseFix</h3>
+            <p>Offline AI denoiser for audio & video. Remove background noise and enhance voice clarity — all on-device.</p>
+            <a href="./noisefix/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- EdgeDox -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">EdgeDox</h3>
-            <p class="text-gray-400 mb-6">Offline AI for document intelligence. Securely process sensitive documents
-              directly on your device.</p>
-            <a href="./edgedox/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about EdgeDox">
-              Learn More
-            </a>
+          <article class="app-card card-cyan reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>EdgeDox</h3>
+            <p>Offline AI for document intelligence. Securely process sensitive documents directly on your device.</p>
+            <a href="./edgedox/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- IoT Platform -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Platform</span>
-            <h3 class="text-3xl font-bold mb-4">Cyberfly Network</h3>
-            <p class="text-gray-400 mb-6">Decentralized AI edge inference and IoT platform. Scalable, secure, and
-              private.</p>
-            <a href="./iot/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about Cyberfly Network">
-              Learn More
-            </a>
+          <article class="app-card card-green reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>expensAI</h3>
+            <p>AI-powered expense tracker with voice input, receipt scanning, and SMS auto-detection. Track finances privately.</p>
+            <a href="./expensai/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- Tamil Quran Hadith Audio -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">Tamil Quran Hadith Audio</h3>
-            <p class="text-gray-400 mb-6">Offline AI-powered Tamil Quran & Hadith audio using Facebook's MMS-TTS-TAM
-              model. No internet required.</p>
-            <a href="./tamilquran/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about Tamil Quran Hadith Audio">
-              Learn More
-            </a>
+          <article class="app-card card-amber reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>Nila AI</h3>
+            <p>Spoken English learning through Tamil with on-device ASR, TTS, and LLM. Practice conversations fully offline.</p>
+            <a href="./nilaai/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- SmartPhoto AI -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">SmartPhoto AI</h3>
-            <p class="text-gray-400 mb-6">On-device photo enhancement and style transfer using advanced AI models. Keep
-              your photos private.</p>
-            <a href="./smartphoto/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about SmartPhoto AI">
-              Learn More
-            </a>
+          <article class="app-card card-blue reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>PrivateScan</h3>
+            <p>Offline multilingual OCR. Scan, extract, and clear text from documents without sending data to the cloud.</p>
+            <a href="./privatescan/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- Nila AI -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">Nila AI</h3>
-            <p class="text-gray-400 mb-6">Spoken English learning through Tamil with on-device AI — ASR, TTS, and LLM.
-              Practice conversations fully offline.</p>
-            <a href="./nilaai/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about Nila AI">
-              Learn More
-            </a>
+          <article class="app-card card-pink reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>SmartPhoto AI</h3>
+            <p>On-device photo enhancement and style transfer using advanced AI models. Keep your photos private.</p>
+            <a href="./smartphoto/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
-          <!-- expensAI -->
-          <article
-            class="product-card glass-effect p-10 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary relative overflow-hidden fade-in-element">
-            <span class="inline-block px-3 py-1 rounded-full text-xs bg-primary/10 text-primary mb-5"
-              aria-label="Product type">Mobile App</span>
-            <h3 class="text-3xl font-bold mb-4">expensAI</h3>
-            <p class="text-gray-400 mb-6">AI-powered expense tracker with voice input, receipt scanning, and SMS
-              auto-detection. Track finances privately on-device.</p>
-            <a href="./expensai/index.html"
-              class="inline-block px-6 py-3 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-              aria-label="Learn more about expensAI">
-              Learn More
-            </a>
+          <article class="app-card card-indigo reveal">
+            <span class="app-card-tag">Mobile App</span>
+            <h3>Tamil Quran Hadith Audio</h3>
+            <p>Offline AI-powered Tamil Quran & Hadith audio using Facebook's MMS-TTS-TAM model. No internet required.</p>
+            <a href="./tamilquran/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </article>
 
+          <article class="app-card card-blue reveal">
+            <span class="app-card-tag">Platform</span>
+            <h3>Cyberfly Network</h3>
+            <p>Decentralized AI edge inference and IoT platform. Scalable, secure, and private by design.</p>
+            <a href="./iot/index.html" class="app-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section id="vision" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Our Vision</h2>
+          <p>We believe intelligence should live where you are — not in some distant data center.</p>
+        </div>
+        <div class="vision-grid">
+          <div class="vision-card reveal">
+            <div class="vision-icon">🔒</div>
+            <h3>Privacy by Design</h3>
+            <p>Every product processes data on-device. Your documents, voice, and photos never leave your phone.</p>
+          </div>
+          <div class="vision-card reveal">
+            <div class="vision-icon">⚡</div>
+            <h3>Edge Intelligence</h3>
+            <p>Run powerful AI models directly on mobile devices — no internet, no latency, no cloud dependency.</p>
+          </div>
+          <div class="vision-card reveal">
+            <div class="vision-icon">🌐</div>
+            <h3>Decentralized Future</h3>
+            <p>Building infrastructure for distributed AI inference and secure IoT communication at global scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <div class="contact-box reveal">
+          <h2>Get in Touch</h2>
+          <p>Have questions or want to collaborate? We'd love to hear from you.</p>
+          <a href="mailto:cyberflyapps@gmail.com" class="btn">Contact Us</a>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 py-16 mt-12">
-    <div class="container mx-auto px-5 max-w-7xl">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-        <div>
-          <h4 class="text-lg font-semibold mb-5">Cyberfly Labs</h4>
-          <p class="text-gray-500">Innovating at the edge.</p>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Cyberfly Labs</h4>
+          <p>Innovating at the edge.</p>
         </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-5">Products</h4>
-          <a href="./privatescan/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">PrivateScan</a>
-          <a href="./edgedox/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">EdgeDox</a>
-          <a href="./iot/index.html" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Cyberfly
-            Network</a>
-          <a href="./tamilquran/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Tamil Quran Hadith Audio</a>
-          <a href="./smartphoto/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">SmartPhoto AI</a>
-          <a href="./nilaai/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Nila AI</a>
-          <a href="./expensai/index.html"
-            class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">expensAI</a>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="./noisefix/index.html">NoiseFix</a>
+          <a href="./edgedox/index.html">EdgeDox</a>
+          <a href="./expensai/index.html">expensAI</a>
+          <a href="./nilaai/index.html">Nila AI</a>
+          <a href="./privatescan/index.html">PrivateScan</a>
+          <a href="./smartphoto/index.html">SmartPhoto AI</a>
+          <a href="./tamilquran/index.html">Tamil Quran</a>
+          <a href="./iot/index.html">Cyberfly Network</a>
         </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-5">Legal</h4>
-          <a href="#" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="#" class="block mb-2.5 text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:cyberflyapps@gmail.com">cyberflyapps@gmail.com</a>
         </div>
       </div>
-      <div class="text-center text-gray-500 pt-5 border-t border-white/10">
-        &copy; 2025 Cyberfly Labs. All rights reserved.
+      <div class="copyright">
+        &copy; 2026 Cyberfly Labs. All rights reserved.
       </div>
     </div>
   </footer>

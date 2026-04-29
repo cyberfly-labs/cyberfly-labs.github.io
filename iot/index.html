@@ -5,58 +5,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyberfly Network - IoT & Decentralized AI | Cyberfly Labs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Cyberfly Network — Decentralized AI Edge Inference and IoT platform. Connect devices and run AI workloads at the edge securely.">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
+<body class="theme-iot">
     <header>
         <div class="container flex justify-between items-center">
-            <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">Cyberfly Labs</a>
+            <a href="/" class="logo">Cyberfly <span class="gradient-text">Labs</span></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#features">Architecture</a></li>
                     <li><a href="/iot/privacy.html">Privacy</a></li>
                     <li><a href="/iot/terms.html">Terms</a></li>
                 </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <span class="product-tag">Platform</span>
+            <span class="product-tag">🌐 Platform · Decentralized Infrastructure</span>
             <h1><span class="gradient-text">Cyberfly Network</span></h1>
             <p>Decentralized AI Edge Inference & IoT.</p>
-            <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 30px;">
+            <p style="font-size:1rem; max-width:580px; margin:0 auto 8px; color:var(--text-muted);">
                 Connect millions of devices. Run AI inference at the edge. Distributed, secure, and private by design.
             </p>
-            <a href="#" class="btn">Start Building</a>
+            <div class="hero-actions">
+                <a href="#" class="btn">Start Building</a>
+                <a href="#features" class="btn btn-glass">Explore Network</a>
+            </div>
         </div>
     </section>
 
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title">The Network Architecture</h2>
-            <div class="grid product-grid">
-
-                <div class="product-card">
-                    <h3>Decentralized Inference</h3>
-                    <p>Distribute AI workloads across edge devices. Reduce latency and cloud costs.</p>
-                </div>
-
-                <div class="product-card">
-                    <h3>IoT Orchestration</h3>
-                    <p>Manage fleet of devices with secure, encrypted communication channels.</p>
-                </div>
-
-                <div class="product-card">
-                    <h3>Privacy Preserved</h3>
-                    <p>Data stays on the edge. Only insights are shared, governed by smart contracts.</p>
-                </div>
-
+    <section id="features" class="section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>The Network Architecture</h2>
+                <p>Built for the next generation of connected intelligence.</p>
             </div>
+            <div class="grid product-grid">
+                <div class="product-card reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Decentralized Inference</h3>
+                    <p>Distribute complex AI workloads across edge devices. Reduce latency, bandwidth usage, and cloud compute costs.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🔌</div>
+                    <h3>IoT Orchestration</h3>
+                    <p>Seamlessly manage and monitor fleets of devices with secure, encrypted communication channels built-in.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy Preserved</h3>
+                    <p>Data stays on the edge device. Only insights and aggregated metrics are shared, governed by smart contracts.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Blockchain Verified</h3>
+                    <p>Transactions, node identities, and data integrity are cryptographically verified on a decentralized ledger.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">📈</div>
+                    <h3>Infinite Scalability</h3>
+                    <p>The network grows stronger as more devices join. Peer-to-peer routing ensures no single point of failure.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Developer Friendly</h3>
+                    <p>Easy-to-use SDKs and APIs let you deploy AI models to the edge and connect IoT sensors in minutes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-box reveal">
+            <h2>Join the <span class="gradient-text">Edge Revolution</span></h2>
+            <p>Start building decentralized AI and IoT applications on the Cyberfly Network today.</p>
+            <a href="#" class="btn">Read the Whitepaper</a>
         </div>
     </section>
 
@@ -65,7 +96,7 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Cyberfly Labs</h4>
-                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                    <p>Innovating at the edge.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Network</h4>
@@ -76,15 +107,13 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="/iot/privacy.html">Privacy Policy</a>
-                    <a href="/iot/terms.html">Terms of Conditions</a>
+                    <a href="/iot/terms.html">Terms & Conditions</a>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Cyberfly Labs. All rights reserved.
-            </div>
+            <div class="copyright">&copy; 2026 Cyberfly Labs. All rights reserved.</div>
         </div>
     </footer>
-    <script type="module" src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

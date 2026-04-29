@@ -5,99 +5,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PrivateScan - Offline OCR | Cyberfly Labs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="PrivateScan — The ultimate offline multilingual OCR solution. Scan documents, extract text, and translate instantly with 100% privacy.">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
-    <!-- Header -->
+<body class="theme-privatescan">
     <header>
         <div class="container flex justify-between items-center">
-            <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">
-                Cyberfly <span class="gradient-text">Labs</span>
-            </a>
+            <a href="/" class="logo">Cyberfly <span class="gradient-text">Labs</span></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="/privatescan/privacy.html">Privacy</a></li>
                     <li><a href="/privatescan/terms.html">Terms</a></li>
                 </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <span class="product-tag">Mobile App</span>
+            <span class="product-tag">🔍 Mobile App · On-Device AI</span>
             <h1><span class="gradient-text">PrivateScan</span></h1>
             <p>The Ultimate Offline Multilingual OCR Solution.</p>
-            <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 30px;">
-                Scan documents, extract text, and translate instantly—all on your device. No internet required, no data
-                leaves your phone.
+            <p style="font-size:1rem; max-width:580px; margin:0 auto 8px; color:var(--text-muted);">
+                Scan documents, extract text, and translate instantly—all on your device. No internet required, no data leaves your phone.
             </p>
-            <div class="flex" style="gap: 10px; justify-content: center;">
-                <a href="#" class="btn">Download for iOS</a>
-                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.privatescan" class="btn btn-glass"
-                    target="_blank" rel="noopener noreferrer">Download for Android</a>
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.privatescan" class="btn" target="_blank" rel="noopener noreferrer">
+                    Download for Android
+                </a>
+                <a href="#features" class="btn btn-glass">Explore Features</a>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
+    <section id="features" class="section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>Powerful text extraction that respects your privacy.</p>
+            </div>
             <div class="grid product-grid">
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">🔒</div>
                     <h3>100% Offline</h3>
-                    <p>Process everything locally. Your sensitive documents never touch the cloud.</p>
+                    <p>Process everything locally. Your sensitive documents never touch the cloud or any external server.</p>
                 </div>
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">🌐</div>
                     <h3>Multilingual Support</h3>
-                    <p>Accurate OCR for over 50 languages including handwritten text.</p>
+                    <p>Accurate OCR for over 50 languages, including complex scripts and handwritten text.</p>
                 </div>
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">📤</div>
                     <h3>Instant Export</h3>
-                    <p>Export to PDF, TXT, or copy to clipboard instantly.</p>
+                    <p>Export your scanned text to PDF, TXT, or copy directly to your clipboard in seconds.</p>
                 </div>
-
+                <div class="product-card reveal">
+                    <div class="feature-icon">📸</div>
+                    <h3>Auto-Crop & Clean</h3>
+                    <p>Automatically detects document edges, crops, and cleans up the image for optimal OCR results.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized on-device models deliver near-instantaneous text extraction without waiting for uploads.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">📁</div>
+                    <h3>Local Organization</h3>
+                    <p>Organize your scanned documents into folders securely on your device's local storage.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="cta-section">
+        <div class="cta-box reveal">
+            <h2>Scan with Total <span class="gradient-text">Privacy</span></h2>
+            <p>Your documents are yours. Keep them that way with 100% offline OCR.</p>
+            <a href="https://play.google.com/store/apps/details?id=io.cyberfly.privatescan" class="btn" target="_blank" rel="noopener noreferrer">Get PrivateScan Free</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Cyberfly Labs</h4>
-                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                    <p>Innovating at the edge.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Changelog</a>
-                    <a href="#">Support</a>
+                    <a href="#features">Features</a>
+                    <a href="mailto:cyberflyapps@gmail.com">Support</a>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="/privatescan/privacy.html">Privacy Policy</a>
-                    <a href="/privatescan/terms.html">Terms of Conditions</a>
+                    <a href="/privatescan/terms.html">Terms & Conditions</a>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Cyberfly Labs. All rights reserved.
-            </div>
+            <div class="copyright">&copy; 2026 Cyberfly Labs. All rights reserved.</div>
         </div>
     </footer>
-
-    <script type="module" src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

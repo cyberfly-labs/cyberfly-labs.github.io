@@ -5,99 +5,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmartPhoto AI - On-Device Photo Enhancement | Cyberfly Labs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="SmartPhoto AI — On-device photo enhancement and style transfer. Upscale, denoise, and apply filters with complete offline privacy.">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
-    <!-- Header -->
+<body class="theme-smartphoto">
     <header>
         <div class="container flex justify-between items-center">
-            <a href="/" class="logo" style="font-weight: 800; font-size: 1.5rem;">
-                Cyberfly <span class="gradient-text">Labs</span>
-            </a>
+            <a href="/" class="logo">Cyberfly <span class="gradient-text">Labs</span></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="/smartphoto/privacy.html">Privacy</a></li>
                     <li><a href="/smartphoto/terms.html">Terms</a></li>
                 </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <span class="product-tag">Mobile App</span>
+            <span class="product-tag">🖼️ Mobile App · On-Device AI</span>
             <h1><span class="gradient-text">SmartPhoto AI</span></h1>
             <p>On-Device Photo Enhancement & Style Transfer.</p>
-            <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 30px;">
-                Process photos offline with advanced AI to enhance quality and apply artistic styles. Lightning fast and
-                completely private—your photos never leave your device.
+            <p style="font-size:1rem; max-width:580px; margin:0 auto 8px; color:var(--text-muted);">
+                Process photos offline with advanced AI to enhance quality and apply artistic styles. Lightning fast and completely private.
             </p>
-            <div class="flex" style="gap: 10px; justify-content: center;">
-                <a href="#" class="btn">Download for iOS</a>
-                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.smartphoto_ai" class="btn btn-glass"
-                    target="_blank" rel="noopener noreferrer">Download for Android</a>
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=io.cyberfly.smartphoto_ai" class="btn" target="_blank" rel="noopener noreferrer">
+                    Download for Android
+                </a>
+                <a href="#features" class="btn btn-glass">Explore Features</a>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
+    <section id="features" class="section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>Studio-quality photo editing powered by local neural networks.</p>
+            </div>
             <div class="grid product-grid">
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">⚡</div>
                     <h3>100% Offline AI</h3>
-                    <p>Process everything locally utilizing your device's neural engine. No cloud dependency.</p>
+                    <p>Process everything locally utilizing your device's neural engine. No cloud dependency or uploads.</p>
                 </div>
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">✨</div>
                     <h3>Photo Enhancement</h3>
                     <p>Instantly upscale, denoise, and sharpen your photos with state-of-the-art AI models.</p>
                 </div>
-
-                <div class="product-card">
+                <div class="product-card reveal">
+                    <div class="feature-icon">🎨</div>
                     <h3>Artistic Styles</h3>
-                    <p>Apply stunning artistic filters and effects directly to your photos in milliseconds.</p>
+                    <p>Apply stunning artistic filters and neural style transfers directly to your photos in milliseconds.</p>
                 </div>
-
+                <div class="product-card reveal">
+                    <div class="feature-icon">👤</div>
+                    <h3>Portrait Retouch</h3>
+                    <p>Automatically detect faces and apply subtle, natural-looking enhancements and lighting fixes.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🌈</div>
+                    <h3>Colorization</h3>
+                    <p>Bring old black and white photos to life with intelligent, context-aware AI colorization.</p>
+                </div>
+                <div class="product-card reveal">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Total Privacy</h3>
+                    <p>Your personal photos stay on your device. We never see, store, or train on your images.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="cta-section">
+        <div class="cta-box reveal">
+            <h2>Enhance Photos <span class="gradient-text">Locally</span></h2>
+            <p>Transform your images with powerful AI while maintaining absolute privacy.</p>
+            <a href="https://play.google.com/store/apps/details?id=io.cyberfly.smartphoto_ai" class="btn" target="_blank" rel="noopener noreferrer">Get SmartPhoto AI Free</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Cyberfly Labs</h4>
-                    <p style="color: #6b7280;">Innovating at the edge.</p>
+                    <p>Innovating at the edge.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Changelog</a>
-                    <a href="#">Support</a>
+                    <a href="#features">Features</a>
+                    <a href="mailto:cyberflyapps@gmail.com">Support</a>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="/smartphoto/privacy.html">Privacy Policy</a>
-                    <a href="/smartphoto/terms.html">Terms of Conditions</a>
+                    <a href="/smartphoto/terms.html">Terms & Conditions</a>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2026 Cyberfly Labs. All rights reserved.
-            </div>
+            <div class="copyright">&copy; 2026 Cyberfly Labs. All rights reserved.</div>
         </div>
     </footer>
-
-    <script type="module" src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

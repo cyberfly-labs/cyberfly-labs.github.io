@@ -1,120 +1,65 @@
-console.log('Cyberfly Labs loaded');
+// Cyberfly Labs — Unified JS v2
 
 // Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (window.scrollY > 50) {
-    header.classList.add('bg-gray-950/80', 'backdrop-blur-lg', 'border-b', 'border-white/10');
-  } else {
-    header.classList.remove('bg-gray-950/80', 'backdrop-blur-lg', 'border-b', 'border-white/10');
-  }
-});
+const header = document.querySelector('header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+}
 
-// Mobile menu toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileNav = document.getElementById('mobile-nav');
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+// Mobile menu
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
-if (mobileMenuBtn && mobileNav) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-    mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-    
-    // Toggle mobile menu
-    if (isExpanded) {
-      mobileNav.classList.add('-right-full');
-      mobileNav.classList.remove('right-0');
-    } else {
-      mobileNav.classList.remove('-right-full');
-      mobileNav.classList.add('right-0');
-    }
-    
-    // Animate hamburger
-    const hamburger = mobileMenuBtn.querySelector('.hamburger');
-    const spans = hamburger.querySelectorAll('span');
-    if (!isExpanded) {
-      hamburger.classList.add('bg-transparent');
-      spans[0].classList.add('rotate-45', 'top-0');
-      spans[0].classList.remove('-top-2');
-      spans[1].classList.add('-rotate-45', 'top-0');
-      spans[1].classList.remove('top-2');
-    } else {
-      hamburger.classList.remove('bg-transparent');
-      spans[0].classList.remove('rotate-45', 'top-0');
-      spans[0].classList.add('-top-2');
-      spans[1].classList.remove('-rotate-45', 'top-0');
-      spans[1].classList.add('top-2');
-    }
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener('click', () => {
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('active');
   });
 
-  // Close menu when clicking on a nav item
-  mobileNavLinks.forEach(link => {
+  // Close on link click
+  navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      mobileNav.classList.add('-right-full');
-      mobileNav.classList.remove('right-0');
-      
-      const hamburger = mobileMenuBtn.querySelector('.hamburger');
-      const spans = hamburger.querySelectorAll('span');
-      hamburger.classList.remove('bg-transparent');
-      spans[0].classList.remove('rotate-45', 'top-0');
-      spans[0].classList.add('-top-2');
-      spans[1].classList.remove('-rotate-45', 'top-0');
-      spans[1].classList.add('top-2');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('active');
     });
   });
 
-  // Close menu when clicking outside
+  // Close on outside click
   document.addEventListener('click', (e) => {
     if (!e.target.closest('header')) {
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      mobileNav.classList.add('-right-full');
-      mobileNav.classList.remove('right-0');
-      
-      const hamburger = mobileMenuBtn.querySelector('.hamburger');
-      const spans = hamburger.querySelectorAll('span');
-      hamburger.classList.remove('bg-transparent');
-      spans[0].classList.remove('rotate-45', 'top-0');
-      spans[0].classList.add('-top-2');
-      spans[1].classList.remove('-rotate-45', 'top-0');
-      spans[1].classList.add('top-2');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('active');
     }
   });
 }
 
-// Smooth scroll for anchor links (Tailwind already handles this with scroll-smooth class)
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+// Scroll reveal — observes .reveal and .product-card
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
       entry.target.classList.add('fade-in');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
   });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-// Observe product cards when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  const productCards = document.querySelectorAll('.product-card');
-  productCards.forEach(card => {
-    observer.observe(card);
+  document.querySelectorAll('.reveal, .product-card, .fade-in-element').forEach(el => {
+    revealObserver.observe(el);
   });
 });
